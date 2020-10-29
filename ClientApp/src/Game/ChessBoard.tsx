@@ -4,7 +4,6 @@ import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import { Case } from "../Models/Case";
 import { Button } from '@material-ui/core';
-import { SvgIcon } from "@material-ui/core";
 import { ReactComponent as Logo } from "./Icons/WhitePawn.svg";
 
 const useStyles = makeStyles((theme) => ({
@@ -29,15 +28,14 @@ const useStyles = makeStyles((theme) => ({
         minWidth: '10vh',
         maxHeight: '10vh',
         minHeight: '10vh',
+        textAlign: 'center'
     },
     imageIcon: {
         display: 'flex',
+        textAlign: 'center',
         height: 'inherit',
         width: 'inherit'
     },
-    iconRoot: {
-        textAlign: 'center'
-    }
 }));
 
 
@@ -72,10 +70,9 @@ const ChessBoard = (props: ChessBoardProps) => {
                     {cases.map(function (value, index) {
                         return (
                             <span key={index}>
-                                <Button key={value.caseIdString} id={value.caseIdString} className={value.isWhite ? classes.whiteButton : classes.blackButton}>
-                                    <SvgIcon className={classes.iconRoot}>
-                                        <Logo className={classes.imageIcon} />
-                                    </SvgIcon>
+                                <Button key={value.caseIdString} id={value.caseIdString} className={value.isWhite ? classes.whiteButton : classes.blackButton}
+                                    startIcon={<Logo className={classes.imageIcon} />}>
+
                                 </Button>
                                 {index % 8 == 7 && <br />}
                             </span>
