@@ -44,5 +44,14 @@ namespace COokie.Controllers
             return result;
         }
 
+        [HttpGet]
+        [Route("getMovementPossibilities")]
+        public List<Case> GetMovementPossibilities(string gameId, string caseId)
+        {
+            Game game = Current.Instance.GameCache.GetGameById(gameId);
+            List<Case> result = game.GetMovementPossibilities(caseId);
+            return result;
+        }
+
     }
 }

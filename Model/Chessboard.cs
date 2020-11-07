@@ -35,5 +35,11 @@ namespace COokie.Model
             }
             return result;
         }
+
+
+        public void GetMovementPossibilities(string caseId)
+        {
+            Cases[caseId].Illuminate(Cases);
+        }
     }
 }

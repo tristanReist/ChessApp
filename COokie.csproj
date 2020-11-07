@@ -19,13 +19,19 @@
     <None Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\Models\Piece.ts" />
+    <None Remove="ClientApp\src\Models\PiecesTypes\Pawn.ts" />
+  </ItemGroup>
 	
 	<ItemGroup>
 		<PackageReference Include="System.Runtime.Caching" Version="4.7.0" />
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <Folder Include="ClientApp\src\Models\" />
+	  <TypeScriptCompile Include="ClientApp\src\Models\Piece.ts" />
+	  <TypeScriptCompile Include="ClientApp\src\Models\PiecesTypes\Pawn.ts" />
 	</ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

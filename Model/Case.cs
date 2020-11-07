@@ -14,7 +14,8 @@ namespace COokie.Model
         public int CaseIdInt { get; }
         public Boolean isIlluminated { get; set; }
         public Boolean isWhite { get; }
-        protected ChessPiece piece { get; set; }
+        public ChessPiece piece { get; set; }
+
 
         public Case(string id)
         {
@@ -56,9 +57,19 @@ namespace COokie.Model
             {
                 this.piece = new Pawn(true, CaseIdInt);
             }
+            /*
             else if (CaseIdInt / 8 == 6)
             {
                 this.piece = new Pawn(false, CaseIdInt);
+            }
+            */
+        }
+
+        public void Illuminate(Dictionary<string, Case> cases)
+        {
+            if (piece != null)
+            {
+                piece.DisplayMovements(cases);
             }
         }
     }

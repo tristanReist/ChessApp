@@ -38,6 +38,13 @@ namespace COokie.Model
             return Board.GetCasesList();
         }
 
+        public List<Case> GetMovementPossibilities(string caseId)
+        {
+            this.Board.GetMovementPossibilities(caseId);
+            return this.GetCasesInformation();
+        }
+
+
         public DateTime InitTimer()
         {
             StartGameTime = DateTime.Now;
