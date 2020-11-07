@@ -7,8 +7,6 @@ import { movePiece } from "../Models/Piece";
 import { Icon } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 
-import { ReactComponent as WhitePawn } from "./Icons/WhitePawn.svg";
-
 const useStyles = makeStyles((theme) => ({
     root: {
         position:"absolute",
@@ -75,7 +73,6 @@ const ChessBoard = (props: ChessBoardProps) => {
     const classes = useStyles();
     const { gameId } = props;
     const [cases, setCases] = React.useState<Case[]>([]);
-    const [Hello, setHello] = React.useState<string>("hello");
 
     const stringToIntId = (s: string) => {
         //Convert string to int from 0 to 63
@@ -117,7 +114,6 @@ const ChessBoard = (props: ChessBoardProps) => {
                 return item;
             });
             setCases(newList);
-
         }
     }
 
@@ -137,7 +133,7 @@ const ChessBoard = (props: ChessBoardProps) => {
                                     onClick={displayPossibilities}>
                                     {value.piece != null &&
                                         <Icon color="primary" aria-label="upload picture" component="span" className={classes.imageIcon}>
-                                            <WhitePawn />
+                                        <img src={require(`${value.piece.logo}`)} />
                                         </Icon>
                                     }
                                 </Button>
